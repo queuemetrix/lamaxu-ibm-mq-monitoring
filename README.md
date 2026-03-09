@@ -14,8 +14,6 @@ Lamaxu’s API provides easy access to MQ events, statistics, status information
 
 The Lamaxu process is designed to be executed as a service, and can be run on the same, or remote server as the queue managers from which it’s collecting data. Object configuration, status, event, accounting and statistics data is collected at configurable intervals, defined in the config.xml file, and persisted to an in-memory data cache.
 
-<a href="https://www.queuemetrix.com/docuflow/doc/media/2025/11/12255300-690afc4a948b3.png"><img src="https://www.queuemetrix.com/docuflow/docuflow/doc/media/2025/11/12255300-690afc4a948b3.png" alt="12255300.png" width="800" /></a>
-
 ## Typical use cases are:
 
 1. To access queue manager metrics which are otherwise inaccessible due to partially implemented support for monitoring IBM MQ in major monitoring platforms. Some examples include message age and depth of a subscription.
