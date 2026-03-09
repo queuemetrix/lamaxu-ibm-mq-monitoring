@@ -1,6 +1,8 @@
 # lamaxu-ibm-mq-monitoring
 Lamaxu is an IBM MQ Monitoring tool that that exposes metrics in JMX format
 
+For more information, please get in touch, <a href="https://www.queuemetrix.com" />www.queuemetrix.com</a>
+
 ## LAMAXU - Pronounced LAMASSU 
 (LAMASSU is an ancient Assyrian protective deity)
 
