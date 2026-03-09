@@ -1,22 +1,35 @@
 # lamaxu-ibm-mq-monitoring
-Lamaxu is an IBM MQ Monitoring tool that that exposes metrics in JMX format
 
-For more information, please get in touch, <a href="https://www.queuemetrix.com" />www.queuemetrix.com</a>
+# README
+[Web Site](https://www.queuemetrix.com)<br>
+[Documentation](https://www.queuemetrix.net.au/confluence/)<br>
+[Docker Hub](https://hub.docker.com/u/queuemetrix)
 
-## LAMAXU - Pronounced LAMASSU 
-(LAMASSU is an ancient Assyrian protective deity)
+## Description
+Lamaxu is a Java agent that remotely connects to IBM MQ and exposes all its available metrics in an easily consumed format, allowing it to be monitored by virtually any enterprise monitoring system.
 
-Lamaxu is a unique IBM MQ monitoring ‘Agentless’ agent, and Web Service API, that allows organizations to build comprehensive monitoring solutions for MQ that meet their own unique business requirements. By providing an open API to build upon, Lamaxu enables you to focus on what to monitor and measure, rather than how.
+## Licensing
+The image is bundled with one(1) license to monitor one(1) queue manager.<br> 
+Please register for a trial you require additional queue manager licenses, [Register for Trial License Now](https://www.queuemetrix.com/license_portal/trial-portal.html).
 
-Lamaxu simplifies the process of gaining insightful IBM MQ metrics from complex distributed MQ systems. The Lamaxu REST API exposes almost all of IBM MQ’s internal workings, and metrics (e.g. Events, Statistics, Statuses, configuration etc). Lamaxu enables the centralised collection of every MQ metric data point that is meaningful to your business.
+## Consumable data formats supported are;
+- JMX Mbeans (Solarwinds, AppDynamics other)
+- HTTP REST Web Service (with formats of both XML and JSON)
+- Log file (XML or JSON formatted logs for consumption by SPLUNK)<br>
 
-Lamaxu’s API provides easy access to MQ events, statistics, status information, configuration plus a number of unique, aggregated performance metrics such as messages rates and queue backlog times. The REST API provides a key/value response, available in either JSON or XML format that can be leveraged in many ways, such as to build your own customised web dashboards.
+## Example Docker Build Command:
+>*docker build --build-arg LMX_VERSION=1.0.8.1 -t queuemetrix/lamaxu-arm64:latest .*
 
-The Lamaxu process is designed to be executed as a service, and can be run on the same, or remote server as the queue managers from which it’s collecting data. Object configuration, status, event, accounting and statistics data is collected at configurable intervals, defined in the config.xml file, and persisted to an in-memory data cache.
+## Example Docker Run Command:
+>*docker run --name lamaxu00 --env JMX_IP=192.168.0.10 -p 8085:8085 -p 8443:8443 -p 3098:3098 -p 3099:3099 --detach queuemetrix/lamaxu-arm64:latest*<br>
 
-## Typical use cases are:
+>**IMPORTANT** <br>Please ensure environment the variable ***JMX_IP={public IP of container}*** is set. <br>This needs to be the public IP and not the internal container IP or remote JMX will not work.
 
-1. To access queue manager metrics which are otherwise inaccessible due to partially implemented support for monitoring IBM MQ in major monitoring platforms. Some examples include message age and depth of a subscription.
-2. The ability to collect all data including events allows for the opportunity to draw out unique information by automatically joining multiple sources of data. Some examples include real time message volume statistics for subscriptions.
-3. Centralising event and accounting / statistics data and applying a lifecycle policy based on age of data allows for the implementation of proper system capacity planning driven by real data. Out of the box, this data is merely available, extracting real uses from it in a self-managing way is where the value is.
+## Example JMX URI
+>*service:jmx:rmi://localhost:3098/jndi/rmi://localhost:3099/jmxrmi*
 
+## Accessing the Web UI
+>*http://localhost:8085/admin/dashboard/dist/#/mq/admin*
+
+> Username: admin<br>
+> Password: password
