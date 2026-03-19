@@ -1,4 +1,4 @@
-# Lamaxu MQ Monitoring - lamaxu-ibm-mq-monitoring
+# IBM MQ Monitoring - Lamaxu 
 
 # README
 [Web Site](https://www.queuemetrix.com)<br>
