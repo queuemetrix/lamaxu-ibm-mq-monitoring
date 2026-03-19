@@ -38,7 +38,7 @@ Please register for a trial you require additional queue manager licenses, [Regi
 
 ---
 
-# Lamaxu MCP Server
+# Lamaxu MQ MCP Server
 
 An [MCP (Model Context Protocol)](https://modelcontextprotocol.io) server that exposes IBM MQ queue manager data from a running Lamaxu agent to AI assistants such as Claude.
 
